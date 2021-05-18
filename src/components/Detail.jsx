@@ -1,19 +1,13 @@
 import React from 'react'
-import MyComponent from './MyComponent';
-import ServiceContext from "./utils/serviceContext";
-const services = {};
-class MyService {
-    getData() {
-        return Promise.resolve('Some data')
-    }
-} services.myService = new MyService();
+import useTask from '../hooks/useTask';
 
 export default function Detail() {
+    const {task} = useTask();
+    console.log(task)
     return (
         <div>
-            <ServiceContext.Provider value={services}>
-                <MyComponent/>
-            </ServiceContext.Provider>
+            <div>ID:{task.id}</div>
+            <div>Title:{task.title}</div>
         </div>
     )
 }

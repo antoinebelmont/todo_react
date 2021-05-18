@@ -1,11 +1,14 @@
 import React, {useState,useRef,useContext} from 'react';
 import { Link } from "react-router-dom";
-import ServiceContext from "./utils/serviceContext";
+import useTask from '../hooks/useTask';
+//import TaskContext from "../context/TaskContext";
 
 
 function List() {
-    const {setTaskDetail} = useContext(ServiceContext);
+    //const {setTaskDetail} = useContext(TaskContext);
+    const {setTaskDetail} = useTask();
 
+    console.log(setTaskDetail);
     const [items, setItems] = useState([{
             id: "1",
             title: "ejemplo"
